@@ -21,7 +21,7 @@ module Creek
         raise 'Not a valid file format.' unless (['.xlsx', '.xlsm'].include? extension)
       end
       path = download_file(path) if options[:remote]
-      @files = Zip::File.open(path)
+      @files = Zip::File.open(path, true)
       @shared_strings = SharedStrings.new(self)
     end
 
